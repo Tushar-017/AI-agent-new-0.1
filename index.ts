@@ -11,15 +11,14 @@ if (!userMessage) {
 
 const wetherTool = {
   name: 'get_weather',
-  description: "It's a tool to get weather information",
+  description:
+    "It's a tool to get weather information. does not need a city or location",
   parameters: z.object({
     reasoning: z.string().describe('The reasoning behind the tool call?'),
   }),
 }
 
-const messages = await runAgent({
+await runAgent({
   userMessage,
   tools: [wetherTool],
 })
-
-console.log('Conversation history:', messages)
